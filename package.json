@@ -12,6 +12,7 @@
   "dependencies": {
     "react": "17.0.2",
     "react-native": "0.68.1",
+    "react-native-fingerprint-scanner": "^6.0.0",
     "react-native-splash-screen": "^3.3.0"
   },
   "devDependencies": {
