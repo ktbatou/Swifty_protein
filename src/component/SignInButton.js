@@ -1,12 +1,12 @@
 import React from 'react'
-
 import {View, Text, StyleSheet,TouchableOpacity} from 'react-native'
-
+import { useNavigation } from '@react-navigation/native';
+ 
 export default function SignInButton()
 {
-    
+    const navigation = useNavigation(); 
     return (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Modules')}>
             <View style={styles.buttonContainer}>
                 <Text style={styles.buttonText}>Sign in</Text>
             </View>
