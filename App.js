@@ -8,7 +8,7 @@ const Stack = createNativeStackNavigator();
 export default function App () {
 return (
   <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Home"n>
         <Stack.Screen
           name="Home"
           component={HomeScreen}  
@@ -17,7 +17,7 @@ return (
        <Stack.Screen
           name="Modules"
           component={ModulesList}  
-          options={{header: () => null}}
+          //options={{header: () => null}}
         />
       </Stack.Navigator>
     </NavigationContainer>
