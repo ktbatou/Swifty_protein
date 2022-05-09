@@ -6,7 +6,10 @@ export default function SignInButton()
 {
     const navigation = useNavigation(); 
     return (
-        <TouchableOpacity onPress={() => navigation.navigate('Modules')}>
+        <TouchableOpacity onPress={() => navigation.reset({
+            index: 0,
+            routes: [{ name: 'Modules' }],
+          })}>
             <View style={styles.buttonContainer}>
                 <Text style={styles.buttonText}>Sign in</Text>
             </View>
