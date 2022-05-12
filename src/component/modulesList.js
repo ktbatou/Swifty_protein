@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 export default function ModulesList(){
     const ligands = useSelector((state)=> state.ligands.value)
+    //console.log("this is ligands ===========> ", ligands)
     return (
         <View style={styles.ItemContainer}>
         <FlatList
