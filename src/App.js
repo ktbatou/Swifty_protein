@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
-import {View, Text, SearchBox} from 'react-native'
-import HomeScreen from './src/views/home';
+import HomeScreen from './views/home';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Modules from './src/views/Modules';
-import SearchInput from './src/component/SearchInput';
+import Modules from './views/Modules';
+import SearchInput from './component/SearchInput';
+import {store} from './redux/store'
+import{Provider} from 'react-redux'
 
 const Stack = createNativeStackNavigator(); 
 export default function App () {
 return (
+  <Provider store={store}>
   <NavigationContainer>
       <Stack.Navigator initialRouteName="Home"n>
         <Stack.Screen
@@ -37,6 +39,7 @@ return (
         />
       </Stack.Navigator>
     </NavigationContainer>
+    </Provider>
 );
 
 

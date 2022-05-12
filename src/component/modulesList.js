@@ -1,15 +1,19 @@
 import React from "react";
 import {Text, View, SafeAreaView, StyleSheet ,FlatList} from "react-native"
+import { useSelector } from "react-redux";
 
-export default function ModulesList(arr){
-    console.log(arr.ModulesArr)
+export default function ModulesList(){
+    const ligands = useSelector((state)=> state.ligands.value)
     return (
         <View style={styles.ItemContainer}>
         <FlatList
-        data={arr}
-        renderItem={({item})=> (
+        data={ligands}
+        
+        renderItem={({item} )=> (
+            
             <Text style={styles.ItemText} >{item}</Text>
-        )}
+    )
+    }
         />
         </View>
     );

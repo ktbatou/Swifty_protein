@@ -5,9 +5,10 @@ import ModulesArr from  '../res'
 
 
 export default function Modules(){
+    
     return (
 <View>
-    <ModulesList ModulesArr/>
+    <ModulesList arr= {ModulesArr}/>
 </View>
     );
 }
