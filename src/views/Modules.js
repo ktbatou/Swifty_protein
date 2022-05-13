@@ -8,7 +8,7 @@ export default function Modules(){
     
     return (
 <View>
-    <ModulesList arr= {ModulesArr}/>
+    <ModulesList/>
 </View>
     );
 }

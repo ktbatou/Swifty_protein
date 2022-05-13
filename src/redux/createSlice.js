@@ -6,10 +6,15 @@ const initialState = {
 };
 
 function searcher(val) {
+
   const filter = ModulesArr.filter(lg => {
     return lg.includes(val);
   });
   if (filter.length) return filter;
+  if (!val){
+    console.log ("this is emthy val : ", val)
+  return ModulesArr
+}
   else return [];
 }
 

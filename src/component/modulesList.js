@@ -4,7 +4,9 @@ import { useSelector } from "react-redux";
 
 export default function ModulesList(){
     const ligands = useSelector((state)=> state.ligands.value)
-    //console.log("this is ligands ===========> ", ligands)
+    
+    if (ligands.length)
+    {
     return (
         <View style={styles.ItemContainer}>
         <FlatList
@@ -17,7 +19,16 @@ export default function ModulesList(){
     }
         />
         </View>
-    );
+    );}
+    else{
+        return (
+            <View>
+                <Text>
+                    no Legand
+                </Text>
+            </View>
+        )
+    } 
 
 }
 
