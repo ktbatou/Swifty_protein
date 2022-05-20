@@ -1,15 +1,20 @@
 import React from 'react'
 import {View, Text, StyleSheet,TouchableOpacity} from 'react-native'
 import { useNavigation } from '@react-navigation/native';
- 
+import Fingerprint from '../biometric';
+
 export default function SignInButton()
 {
     const navigation = useNavigation(); 
     return (
-        <TouchableOpacity onPress={() => navigation.reset({
-            index: 0,
-            routes: [{ name: 'Modules' }],
-          })}>
+        <TouchableOpacity onPress={ () => {
+            console.log("clicked")
+            Fingerprint()}
+        //     () => navigation.reset({
+        //     index: 0,
+        //     routes: [{ name: 'BiometricPopup' }],
+        //   })
+          }>
             <View style={styles.buttonContainer}>
                 <Text style={styles.buttonText}>Sign in</Text>
             </View>

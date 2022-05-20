@@ -8,3 +8,9 @@
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
 # Add any project specific keep options here:
+
+# Samsung Fingerprint
+
+// DEPRECATED in 4.0.0
+-keep class com.samsung.android.sdk.** { *; }
+-dontwarn com.samsung.android.sdk.**

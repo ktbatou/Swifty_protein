@@ -131,8 +131,9 @@ def reactNativeArchitectures() {
 
 android {
     ndkVersion rootProject.ext.ndkVersion
-
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
 
     defaultConfig {
         applicationId "com.swifty_protein"
@@ -141,6 +142,7 @@ android {
         versionCode 1
         versionName "1.0"
         multiDexEnabled
+        targetSdkVersion 29
         missingDimensionStrategy 'react-native-fingerprint-scanner', 'general'
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
            

@@ -6,6 +6,8 @@ import Modules from './views/Modules';
 import SearchInput from './component/SearchInput';
 import {store} from './redux/store'
 import{Provider} from 'react-redux'
+import BiometricPopup from "./fingerPrintScanner"
+
 
 const Stack = createNativeStackNavigator(); 
 export default function App () {
@@ -37,6 +39,10 @@ return (
              
             }}
         />
+        <Stack.Screen
+   name="BiometricPopup"
+   component={BiometricPopup}
+   />
       </Stack.Navigator>
     </NavigationContainer>
     </Provider>
