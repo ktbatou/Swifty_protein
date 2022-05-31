@@ -1,17 +1,18 @@
 import React from 'react';
 import FingerprintScanner from 'react-native-fingerprint-scanner';
 import {Alert} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
 
 export default function FingerprintAuth(navigation) {
   return FingerprintScanner.authenticate({
     onAttempt: () => {
       console.log('an error');
+      console.log('');
     },
     title: 'Log in with Biometrics',
   })
     .then(() => {
       console.log('finger scanned');
+      console.log('');
       Alert.alert('Fingerprint Authentication', 'Authenticated successfully', [
         {
           text: 'OK',
@@ -25,6 +26,7 @@ export default function FingerprintAuth(navigation) {
     })
     .catch(error => {
       console.log('fingerprint scanner error');
+      console.log('');
       Alert.alert(
         'Fingerprint Authentication',
         error.message,
@@ -39,5 +41,6 @@ export default function FingerprintAuth(navigation) {
         //   },
         // ]
       );
-    });
+    })
+    .finally(() => FingerprintScanner.release());
 }

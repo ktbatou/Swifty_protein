@@ -9,6 +9,7 @@ import isSensorAvailable from '../SensorChecker';
 export default function HomeScreen(navigation) {
   const [hasSensor, setHasSensor] = useState(false);
   useEffect(() => SplashScreen.hide());
+
   useEffect(() => {
     isSensorAvailable()
       .then(result => {
@@ -34,6 +35,8 @@ export default function HomeScreen(navigation) {
     </View>
   );
 }
+
+props => jsx;
 
 const styles = StyleSheet.create({
   sectionContainer: {
