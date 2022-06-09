@@ -7,6 +7,7 @@ import SearchInput from './component/SearchInput';
 import {store} from './redux/store';
 import {Provider} from 'react-redux';
 import BiometricPopup from './fingerPrintScanner';
+import ProteinDisplay from './views/proteinDisplay';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -30,6 +31,19 @@ export default function App() {
               },
               headerTintColor: '#fff',
               headerTitle: () => <SearchInput />,
+
+              // header: () =>null
+            }}
+          />
+          <Stack.Screen
+            name="Protein Display"
+            component={ProteinDisplay}
+            options={{
+              headerStyle: {
+                backgroundColor: '#DF8F8F',
+              },
+              headerTintColor: '#fff',
+              //   headerTitle: () => <SearchInput />,
 
               // header: () =>null
             }}

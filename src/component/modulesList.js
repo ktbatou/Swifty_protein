@@ -7,18 +7,24 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import {useSelector} from 'react-redux';
+import {apiRequest} from '../api/apiRequest';
 
 export default function ModulesList() {
   const ligands = useSelector(state => state.ligands.value);
-
+  const navigation = useNavigation();
   if (ligands.length) {
     return (
       <View style={styles.ItemContainer}>
         <FlatList
           data={ligands}
           renderItem={({item}) => (
-            <TouchableOpacity onPress={() => console.log('module pressed')}>
+            <TouchableOpacity
+              onPress={() => {
+                //apiRequest();
+                navigation.navigate('Protein Display');
+              }}>
               <Text style={styles.ItemText}>{item}</Text>
             </TouchableOpacity>
           )}
@@ -27,8 +33,8 @@ export default function ModulesList() {
     );
   } else {
     return (
-      <View>
-        <Text>no Legand</Text>
+      <View style={styles.noLigandContainer}>
+        <Text style={styles.noLigandText}>No Ligand</Text>
       </View>
     );
   }
@@ -48,5 +54,16 @@ const styles = StyleSheet.create({
   ItemContainer: {
     backgroundColor: 'white',
     paddingHorizontal: 20,
+  },
+  // noLigandContainer: {
+  //   flex: 1,
+  //   display: 'flex',
+  //   alignItems: 'center',
+  // },
+  noLigandText: {
+    fontFamily: 'Poppins-Regular',
+    fontSize: 20,
+    // color: 'red',
+    alignSelf: 'center',
   },
 });

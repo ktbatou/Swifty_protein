@@ -1,15 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import SignInButton from '../component/SignInButton';
-import {Text, View, StyleSheet, Image} from 'react-native';
+import {AppState, Text, View, StyleSheet, Image} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 import isSensorAvailable from '../SensorChecker';
-
+import RNRestart from 'react-native-restart';
 //TODO: check for finger print Sensor
 
 export default function HomeScreen(navigation) {
+  const appState = useRef(AppState.currentState);
   const [hasSensor, setHasSensor] = useState(false);
-  useEffect(() => SplashScreen.hide());
 
+  useEffect(() => SplashScreen.hide());
   useEffect(() => {
     isSensorAvailable()
       .then(result => {
@@ -20,6 +21,12 @@ export default function HomeScreen(navigation) {
         console.log(err);
         setHasSensor(false);
       });
+
+    // const subscription = AppState.addEventListener('change', nextAppState => {
+    //   if (nextAppState === 'background') {
+    //     RNRestart.Restart();
+    //   }
+    // });
   });
 
   return (
